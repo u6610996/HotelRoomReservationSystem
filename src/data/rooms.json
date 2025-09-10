@@ -1,0 +1,50 @@
+[
+  {
+    "id": "S101",
+    "name": "Single City",
+    "type": "Single",
+    "price": 1200,
+    "popularity": 60,
+    "quantity": 2,
+    "discount": 0,
+    "features": ["WiFi"],
+    "images": ["/images/rooms/S101/main.jpg", "/images/rooms/S101/01.jpg"],
+    "availableNights": ["2025-09-12", "2025-09-13", "2025-09-14"]
+  },
+  {
+    "id": "D201",
+    "name": "Double Sea View",
+    "type": "Double",
+    "price": 1800,
+    "popularity": 85,
+    "quantity": 3,
+    "discount": 0.1,
+    "features": ["WiFi", "Balcony", "Sea View"],
+    "images": ["/images/rooms/D201/main.jpg", "/images/rooms/D201/01.jpg"],
+    "availableNights": ["2025-09-12", "2025-09-13", "2025-09-14"]
+  },
+  {
+    "id": "D203",
+    "name": "Double Garden",
+    "type": "Double",
+    "price": 1500,
+    "popularity": 72,
+    "quantity": 1,
+    "discount": 0,
+    "features": ["WiFi"],
+    "images": ["/images/rooms/D203/main.jpg"],
+    "availableNights": ["2025-09-12"]
+  },
+  {
+    "id": "Q301",
+    "name": "Suite Corner",
+    "type": "Suite",
+    "price": 3200,
+    "popularity": 90,
+    "quantity": 0,
+    "discount": 0.15,
+    "features": ["WiFi", "Balcony"],
+    "images": ["/images/rooms/Q301/main.jpg"],
+    "availableNights": ["2025-09-14"]
+  }
+]
