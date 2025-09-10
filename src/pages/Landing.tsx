@@ -1,4 +1,7 @@
 import { Link } from "react-router-dom";
+import { asset } from "../lib/asset";
+
+<img className="img-cover" src={asset("images/rooms/D201/main.jpg")} alt="Hotel hero" />
 
 export default function Landing() {
   return (
