@@ -1,0 +1,9 @@
+<!doctype html>
+<meta charset="utf-8" />
+<script>
+  var REPO = "/HotelRoomReservationSystem";
+  var path = location.pathname.replace(REPO, "");
+  var q    = location.search || "";
+  var h    = location.hash   || "";
+  location.replace(REPO + "/#" + path + q + h);
+</script>
