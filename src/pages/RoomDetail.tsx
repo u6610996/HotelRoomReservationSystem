@@ -1,5 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import rooms from "../data/rooms.json";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 type Room = {
   id: string; name: string; type: "Single"|"Double"|"Suite";
@@ -12,50 +14,84 @@ export default function RoomDetail() {
   const nav = useNavigate();
   const room = (rooms as Room[]).find(r => r.id === id);
 
-  if (!room) return <div>ไม่พบบันทึกห้อง: {id}</div>;
+  if (!room) return <div className="container py-5">ไม่พบบันทึกห้อง: {id}</div>;
 
   const onBook = () => nav("/checkout", { state: { roomId: room.id } });
 
   return (
-    <section className="space-y-6">
-      <div className="grid lg:grid-cols-3 gap-6">
-        {/* Left: images */}
-        <div className="lg:col-span-2 space-y-4">
-          <div className="img-frame banner shadow-sm">
-            <img className="img-cover" src={room.images?.[0]} alt={room.name} />
+    <div className="container py-5">
+      <div className="row g-4">
+        {/* Left: carousel images */}
+        <div className="col-lg-8">
+          <div id="roomCarousel" className="carousel slide shadow-sm rounded overflow-hidden" data-bs-ride="carousel">
+            <div className="carousel-inner">
+              {room.images.map((src, i) => (
+                <div key={i} className={`carousel-item ${i === 0 ? "active" : ""}`}>
+                  <img src={src} className="d-block w-100" alt={`${room.name} ${i + 1}`} style={{ objectFit: "cover", height: "450px" }} />
+                </div>
+              ))}
+            </div>
+            <button className="carousel-control-prev" type="button" data-bs-target="#roomCarousel" data-bs-slide="prev">
+              <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span className="visually-hidden">Previous</span>
+            </button>
+            <button className="carousel-control-next" type="button" data-bs-target="#roomCarousel" data-bs-slide="next">
+              <span className="carousel-control-next-icon" aria-hidden="true"></span>
+              <span className="visually-hidden">Next</span>
+            </button>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-            {room.images.slice(1).map((src, i) => (
-              <div className="img-frame" key={i}>
-                <img className="img-cover" src={src} alt={`${room.name} ${i+1}`} />
-              </div>
+
+          {/* Thumbnails */}
+          <div className="mt-3 d-flex flex-wrap gap-2">
+            {room.images.map((src, i) => (
+              <img
+                key={i}
+                src={src}
+                alt={`Thumbnail ${i + 1}`}
+                className="rounded border"
+                style={{ width: "100px", height: "70px", objectFit: "cover", cursor: "pointer" }}
+                data-bs-target="#roomCarousel"
+                data-bs-slide-to={i}
+              />
             ))}
           </div>
         </div>
 
         {/* Right: summary card */}
-        <aside className="rounded-2xl border bg-white p-5 shadow-sm h-fit">
-          <h1 className="text-2xl font-semibold">{room.name}</h1>
-          <p className="text-gray-600">{room.type}</p>
+        <div className="col-lg-4">
+          <div className="card shadow-sm border-0 sticky-top" style={{ top: "80px" }}>
+            <div className="card-body">
+              <h2 className="card-title h4">{room.name}</h2>
+              <p className="text-muted mb-3">{room.type}</p>
 
-          <div className="mt-3 text-xl font-semibold">
-            ฿{room.price.toLocaleString()} <span className="text-sm font-normal text-gray-500">/คืน</span>
-            {room.discount ? <span className="ml-2 text-green-600 text-sm">−{Math.round(room.discount*100)}%</span> : null}
+              <h4 className="fw-bold text-primary">
+                ฿{room.price.toLocaleString()} 
+                {room.discount && (
+                  <span className="ms-2 badge bg-success">
+                    −{Math.round(room.discount * 100)}%
+                  </span>
+                )}
+              </h4>
+
+              <div className="mt-3">
+                {room.features.map(f => (
+                  <span key={f} className="badge bg-light text-dark border me-2 mb-2">{f}</span>
+                ))}
+              </div>
+
+              <button
+                onClick={onBook}
+                className="btn btn-dark btn-lg w-100 mt-4"
+              >
+                Book this room
+              </button>
+              <p className="text-muted small mt-2">
+                * Select the date and finalize the price in the next step.
+              </p>
+            </div>
           </div>
-
-          <div className="mt-3 flex flex-wrap gap-2">
-            {room.features.map(f => (
-              <span key={f} className="px-3 py-1 rounded-full bg-gray-100 text-sm">{f}</span>
-            ))}
-          </div>
-
-          <button onClick={onBook} className="mt-5 w-full px-4 py-3 rounded-xl bg-gray-900 text-white hover:opacity-90">
-            จองห้องนี้
-          </button>
-          <p className="mt-2 text-xs text-gray-500">* เลือกวันที่และสรุปราคาในขั้นตอนถัดไป</p>
-        </aside>
+        </div>
       </div>
-    </section>
+    </div>
   );
 }
-

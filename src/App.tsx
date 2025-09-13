@@ -6,28 +6,42 @@ import Checkout from "./pages/Checkout";
 import Payment from "./pages/Payment";
 import Confirmation from "./pages/Confirmation";
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+
 function NavBar() {
-  const linkCls = ({ isActive }: { isActive: boolean }) =>
-    `px-3 py-2 rounded-lg text-sm ${isActive ? "bg-gray-900 text-white" : "text-gray-600 hover:text-gray-900 hover:bg-gray-100"}`;
+  const activeClass = "btn btn-dark btn-sm me-2";
+  const inactiveClass = "btn btn-outline-dark btn-sm me-2";
 
   return (
-    <header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b">
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
-        <Link to="/" className="text-base font-semibold">Hotel Room Reservation System</Link>
-        <nav className="flex items-center gap-1">
-          <NavLink to="/search" className={linkCls}>Search</NavLink>
-          <NavLink to="/checkout" className={linkCls}>Checkout</NavLink>
-          <NavLink to="/payment" className={linkCls}>Payment</NavLink>
+    <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm">
+      <div className="container">
+        <Link className="navbar-brand fw-bold" to="/">Orivelle</Link>
+
+        <div className="d-flex">
+          <NavLink to="/" className={({ isActive }) => isActive ? activeClass : inactiveClass}>
+            Home
+          </NavLink>
+          <NavLink to="/search" className={({ isActive }) => isActive ? activeClass : inactiveClass}>
+            Search
+          </NavLink>
+          <NavLink to="/checkout" className={({ isActive }) => isActive ? activeClass : inactiveClass}>
+            Checkout
+          </NavLink>
+          <NavLink to="/payment" className={({ isActive }) => isActive ? activeClass : inactiveClass}>
+            Payment
+          </NavLink>
           <a
             href="https://github.com"
-            target="_blank" rel="noreferrer"
-            className="ml-1 px-3 py-2 rounded-lg text-sm border hover:bg-gray-50"
+            target="_blank"
+            rel="noreferrer"
+            className="btn btn-outline-secondary btn-sm"
           >
             GitHub
           </a>
-        </nav>
+        </div>
       </div>
-    </header>
+    </nav>
   );
 }
 
@@ -35,7 +49,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <NavBar />
-      <main className="max-w-7xl mx-auto px-6 py-8">
+      <main className="container py-4">
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/search" element={<Search />} />
@@ -46,8 +60,8 @@ export default function App() {
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </main>
-      <footer className="border-t">
-        <div className="max-w-7xl mx-auto px-6 py-6 text-xs text-gray-500">
+      <footer className="border-top py-3 mt-4">
+        <div className="container text-center text-muted small">
           © 2025 HRRS — Demo for CSX4104
         </div>
       </footer>

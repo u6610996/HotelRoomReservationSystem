@@ -8,7 +8,7 @@
     "quantity": 2,
     "discount": 0,
     "features": ["WiFi"],
-    "images": ["/images/rooms/S101/main.jpg", "/images/rooms/S101/01.jpg"],
+    "images": ["https://scdn.aro.ie/Sites/50/imperialhotels2022/uploads/images/PanelImages/General/156757059_Bedford_Hotel__Single_Room._4500x3000.jpg", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxPxfDolkCnPmu7ogcQ8fP8LibE7pgfVQOGQ&s"],
     "availableNights": ["2025-09-12", "2025-09-13", "2025-09-14"]
   },
   {
@@ -20,7 +20,7 @@
     "quantity": 3,
     "discount": 0.1,
     "features": ["WiFi", "Balcony", "Sea View"],
-    "images": ["/images/rooms/D201/main.jpg", "/images/rooms/D201/01.jpg"],
+    "images": ["https://q-xx.bstatic.com/xdata/images/hotel/max1024x768/395810551.jpg?k=fc9c3df404198d41bbf276be686f1714b4d379e94fdca3e0d7990afd885a2426&o=&s=1024x", "https://q-xx.bstatic.com/xdata/images/hotel/max1024x768/233125423.jpg?k=be1e1488341f164df78bc000502d90cdd40c8f3103c8649ab00f20477734e87b&o=&s=1024x", "https://pix8.agoda.net/hotelImages/7937563/-1/8d360b2362f92c957d2064c5fa00d0c2.jpg?ca=15&ce=1&s=1024x", "https://pix8.agoda.net/property/7937563/0/8883e0746ab8b8440cc6cf7e564527b9.jpeg?ce=0&s=1024x"],
     "availableNights": ["2025-09-12", "2025-09-13", "2025-09-14"]
   },
   {
@@ -32,7 +32,7 @@
     "quantity": 1,
     "discount": 0,
     "features": ["WiFi"],
-    "images": ["/images/rooms/D203/main.jpg"],
+    "images": ["https://pix8.agoda.net/hotelImages/283/28347347/28347347_211014230300106502310.jpg?s=1024x", "https://q-xx.bstatic.com/xdata/images/hotel/max1024x768/440087486.jpg?k=573ef9d33144e07e37492a5892eac3bc61aa6ccaeddaf840176234dbe7844cdc&o=&s=1024x", "https://pix8.agoda.net/property/28347347/0/282c65e5ea6aa6778351edf5589e435a.jpeg?ce=0&s=1024x"],
     "availableNights": ["2025-09-12"]
   },
   {
@@ -46,5 +46,41 @@
     "features": ["WiFi", "Balcony"],
     "images": ["/images/rooms/Q301/main.jpg"],
     "availableNights": ["2025-09-14"]
+  },
+  {
+    "id": "S102",
+    "name": "Single Budget",
+    "type": "Single",
+    "price": 900,
+    "popularity": 55,
+    "quantity": 4,
+    "discount": 0,
+    "features": ["WiFi", "Air Conditioning"],
+    "images": ["https://media.onyx-hospitality.com/-/media/project/amari/common/property/phuket/hotel-photos/stay/one-bedroom-suite_ocean-view-coral-lounge/bedroom_1.jpg?rev=180c5b2b6e5344d191634d2045d68ae0"],
+    "availableNights": ["2025-09-12", "2025-09-13"]
+  },
+  {
+    "id": "D204",
+    "name": "Double Deluxe",
+    "type": "Double",
+    "price": 2000,
+    "popularity": 80,
+    "quantity": 2,
+    "discount": 0.05,
+    "features": ["WiFi", "Balcony", "Smart TV"],
+    "images": ["https://pix8.agoda.net/property/56145358/873285793/047200e245c495ea375110303b517bce.jpeg?ce=0&s=1024x", "https://pix8.agoda.net/property/7937563/873285292/60e5118d127b6f75dfb220b90cb4936d.jpeg?ce=0&s=1024x", "https://pix8.agoda.net/property/7937563/645584130/8ebb2ec35c9fc54c0e959eff8a415085.jpeg?ce=0&s=1024x", "https://q-xx.bstatic.com/xdata/images/hotel/max1024x768/238890485.jpg?k=78a59d32b0b46be3ab981a504f8bc6c833e437c84af5619035c18232f2bb83a0&o=&s=1024x", "https://pix8.agoda.net/property/7937563/645584130/51389e5a8efb2abe3474967dbeda97d5.jpeg?ce=0&s=1024x"],
+    "availableNights": ["2025-09-12", "2025-09-13", "2025-09-14"]
+  },
+  {
+    "id": "Q302",
+    "name": "Suite Executive",
+    "type": "Suite",
+    "price": 4000,
+    "popularity": 95,
+    "quantity": 2,
+    "discount": 0.2,
+    "features": ["WiFi", "Jacuzzi", "Sea View", "Balcony"],
+    "images": ["https://cf.bstatic.com/xdata/images/hotel/max1024x768/205986955.jpg?k=1719beeda8de60199ebbf9f42be5a01904dd29be6377fabb34ca2f1d244193c8&o=&hp=1"],
+    "availableNights": ["2025-09-13", "2025-09-14"]
   }
 ]

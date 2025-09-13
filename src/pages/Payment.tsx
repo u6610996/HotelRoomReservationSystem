@@ -7,10 +7,16 @@ export default function Payment() {
 
   if (!booking) {
     return (
-      <section className="rounded-2xl border bg-white p-5 shadow-sm">
-        <p>ยังไม่มีรายการชำระเงิน</p>
-        <Link to="/search" className="underline text-sm">กลับไปค้นหาห้อง</Link>
-      </section>
+      <div className="container my-5">
+        <div className="card shadow-sm">
+          <div className="card-body text-center">
+            <p className="mb-2">There is no payment</p>
+            <Link to="/search" className="btn btn-link">
+              Back to search
+            </Link>
+          </div>
+        </div>
+      </div>
     );
   }
 
@@ -21,33 +27,61 @@ export default function Payment() {
   };
 
   return (
-    <section className="grid lg:grid-cols-3 gap-6">
-      {/* QR */}
-      <div className="lg:col-span-2 rounded-2xl border bg-white p-5 shadow-sm">
-        <h1 className="text-xl font-semibold">ชำระเงิน (Mock)</h1>
-        <p className="text-sm text-gray-500 mb-4">QR พร้อมเพย์ปลอมสำหรับเดโมเท่านั้น</p>
+    <div className="container my-5">
+      <div className="row g-4">
+        {/* Left: QR Payment */}
+        <div className="col-lg-8">
+          <div className="card shadow-sm">
+            <div className="card-body">
+              <h4 className="card-title">Payment (Mock)</h4>
+              <p className="text-muted small mb-4">
+                Fake PromptPay QR for demo only
+              </p>
 
-        <div className="img-frame square mx-auto max-w-sm">
-          <img className="img-cover" src="/images/mock/qr.png" alt="QR PromptPay (Mock)" />
+              <div className="text-center">
+                <img
+                  src="https://apps.odoo.com/apps/icon_image?module_id=87744"
+                  alt="QR PromptPay (Mock)"
+                  className="img-fluid rounded mb-3"
+                  style={{ maxWidth: "300px" }}
+                />
+              </div>
+
+              <div className="d-flex gap-2">
+                <button onClick={onCancel} className="btn btn-outline-secondary">
+                  cancle
+                </button>
+                <button onClick={onConfirm} className="btn btn-dark">
+                  Transfered / Done
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div className="mt-5 flex gap-2">
-          <button onClick={onCancel} className="px-4 py-2 rounded-lg border bg-white hover:bg-gray-50">ยกเลิก</button>
-          <button onClick={onConfirm} className="px-4 py-2 rounded-lg bg-gray-900 text-white hover:opacity-90">
-            โอนแล้ว / ตกลง
-          </button>
+        {/* Right: Summary */}
+        <div className="col-lg-4">
+          <div className="card shadow-sm">
+            <div className="card-body">
+              <h5 className="card-title mb-3">Summary</h5>
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">
+                  Room: <strong>{booking.roomName}</strong> ({booking.roomId})
+                </li>
+                <li className="list-group-item">
+                  Time peroid:{" "}
+                  <strong>{booking.checkIn}</strong> →{" "}
+                  <strong>{booking.checkOut}</strong> ({booking.nights} nights)
+                </li>
+                <li className="list-group-item">
+                  Payment amount:{" "}
+                  <strong>฿{booking.total.toLocaleString()}</strong>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
-
-      {/* Summary */}
-      <aside className="rounded-2xl border bg-white p-5 shadow-sm h-fit">
-        <h2 className="font-medium mb-3">สรุปรายการ</h2>
-        <div className="space-y-1 text-sm">
-          <div>ห้อง: <strong>{booking.roomName}</strong> ({booking.roomId})</div>
-          <div>ช่วงพัก: <strong>{booking.checkIn}</strong> → <strong>{booking.checkOut}</strong> ({booking.nights} คืน)</div>
-          <div>ยอดชำระ: <strong>฿{booking.total.toLocaleString()}</strong></div>
-        </div>
-      </aside>
-    </section>
+    </div>
   );
 }

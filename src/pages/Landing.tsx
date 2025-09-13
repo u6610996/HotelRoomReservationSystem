@@ -1,53 +1,119 @@
 import { Link } from "react-router-dom";
-import { asset } from "../lib/asset";
-
-<img className="img-cover" src={asset("images/rooms/D201/main.jpg")} alt="Hotel hero" />
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 export default function Landing() {
   return (
-    <section className="grid lg:grid-cols-2 gap-10 items-center">
-      {/* Hero Image */}
-      <div className="img-frame banner shadow-sm">
-        <img className="img-cover" src="/images/rooms/D201/main.jpg" alt="Hotel hero" />
+    <div className="container py-5">
+      <div className="row align-items-center g-5">
+        {/* Hero Image */}
+        <div className="col-lg-6">
+          <div className="card shadow-sm border-0">
+            <img
+              src="https://images.trvl-media.com/lodging/7000000/6490000/6481500/6481447/59ad3e10.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill"
+              className="card-img-top rounded"
+              alt="Hotel hero"
+            />
+          </div>
+        </div>
+
+        {/* Text + CTA */}
+        <div className="col-lg-6">
+          <h1 className="display-5 fw-bold">Welcome to Our Hotel</h1>
+          <p className="text-muted mt-3">
+            Find and choose the your room easily! — filter by type, price, availability, and features.
+          </p>
+
+          {/* Feature badges */}
+          <div className="mt-4 d-flex flex-wrap gap-2">
+            <span className="badge bg-light text-dark border">Fast Filter</span>
+            <span className="badge bg-light text-dark border">Date Validation</span>
+            <span className="badge bg-light text-dark border">Mock Payment (QR)</span>
+            <span className="badge bg-light text-dark border">Persist Booking</span>
+          </div>
+
+          {/* Buttons */}
+          <div className="mt-4 d-flex gap-3 flex-wrap">
+            <Link to="/search" className="btn btn-dark btn-lg">
+              Search
+            </Link>
+            <Link to="/rooms/D201" className="btn btn-outline-secondary btn-lg">
+              View sample room
+            </Link>
+          </div>
+        </div>
       </div>
 
-      {/* Text + CTA */}
-      <div>
-        <h1 className="text-4xl font-semibold tracking-tight">Welcome to Our Hotel</h1>
-        <p className="mt-3 text-gray-600">
-          ค้นหาและเลือกห้องที่ใช่ได้อย่างรวดเร็ว — กรองตามประเภท ราคา ความพร้อม และฟีเจอร์ต่าง ๆ
-        </p>
-
-        {/* Feature badges */}
-        <div className="mt-4 flex flex-wrap gap-2">
-          <span className="px-3 py-1 rounded-full bg-white border text-sm">Fast Filter</span>
-          <span className="px-3 py-1 rounded-full bg-white border text-sm">Date Validation</span>
-          <span className="px-3 py-1 rounded-full bg-white border text-sm">Mock Payment (QR)</span>
-          <span className="px-3 py-1 rounded-full bg-white border text-sm">Persist Booking</span>
+      {/* Preview Carousel */}
+      <h2 className="text-muted mt-3">
+            Preview facilities
+      </h2>
+      <div id="carouselExampleControls" className="carousel slide mt-5" data-bs-ride="carousel">
+        <div className="carousel-inner">
+          <div className="carousel-item active">
+            <img
+              className="d-block w-100"
+              src="https://pix8.agoda.net/hotelImages/283/28347347/28347347_211020143400106657457.jpg?s=1024x"
+              alt="First slide"
+              style={{ height: '700px', objectFit: 'cover' }}
+            />
+             <div className="carousel-caption d-none d-md-block">
+              <h1>Lobby</h1>
+            </div>
+          </div>
+          <div className="carousel-item">
+            <img
+              className="d-block w-100"
+              src="https://www.maritim.com/fileadmin/_processed_/0/1/csm_Bpa_363_Superior_500a005b62.jpg"
+              alt="Second slide"
+              style={{ height: '700px', objectFit: 'cover' }}
+            />
+            <div className="carousel-caption d-none d-md-block">
+              <h1>Hotel Room</h1>
+            </div>
+          </div>
+          <div className="carousel-item">
+            <img
+              className="d-block w-100"
+              src="https://q-xx.bstatic.com/xdata/images/hotel/max1024x768/351060271.jpg?k=ad1e2904bedc6db7acb01df07611470e2be5ef5c67e638ed925ccc3f5091fb73&o=&s=1024x"
+              alt="Third slide"
+              style={{ height: '700px', objectFit: 'cover' }}
+            />
+             <div className="carousel-caption d-none d-md-block">
+              <h1>Roof Top Pool</h1>
+            </div>
+          </div>
+          <div className="carousel-item">
+            <img
+              className="d-block w-100"
+              src="https://media.z-suite.it/hotelmargherita.info/public/crop/Ristorante--Foto-Ristorante-ambienti--Ristorante_MAma_Hotel_Margherita_sala_e_terrazza-790x450.jpg?v=2"
+              alt="Third slide"
+              style={{ height: '700px', objectFit: 'cover' }}
+            />
+             <div className="carousel-caption d-none d-md-block">
+              <h1>Dinning Room</h1>
+            </div>
+          </div>
         </div>
-
-        <div className="mt-6 flex gap-3">
-          <Link to="/search" className="px-5 py-3 rounded-xl bg-gray-900 text-white hover:opacity-90">
-            เริ่มค้นหาห้อง
-          </Link>
-          <Link to="/rooms/D201" className="px-5 py-3 rounded-xl border bg-white hover:bg-gray-50">
-            ดูตัวอย่างห้อง
-          </Link>
-        </div>
+        <a
+          className="carousel-control-prev"
+          href="#carouselExampleControls"
+          role="button"
+          data-bs-slide="prev"
+        >
+          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span className="visually-hidden">Previous</span>
+        </a>
+        <a
+          className="carousel-control-next"
+          href="#carouselExampleControls"
+          role="button"
+          data-bs-slide="next"
+        >
+          <span className="carousel-control-next-icon" aria-hidden="true"></span>
+          <span className="visually-hidden">Next</span>
+        </a>
       </div>
-
-      {/* Preview strip (optional, desktop look) */}
-      <div className="lg:col-span-2 mt-4 grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div className="img-frame">
-          <img className="img-cover" src="/images/rooms/S101/main.jpg" alt="Preview 1" />
-        </div>
-        <div className="img-frame">
-          <img className="img-cover" src="/images/rooms/D203/main.jpg" alt="Preview 2" />
-        </div>
-        <div className="img-frame">
-          <img className="img-cover" src="/images/rooms/Q301/main.jpg" alt="Preview 3" />
-        </div>
-      </div>
-    </section>
+    </div>
   );
 }

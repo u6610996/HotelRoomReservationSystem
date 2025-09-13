@@ -7,49 +7,88 @@ export default function Confirmation() {
 
   if (!booking || booking.status !== "confirmed") {
     return (
-      <section className="rounded-2xl border bg-white p-5 shadow-sm">
-        <p>ไม่พบการจองที่ยืนยันแล้ว</p>
-        <Link to="/search" className="underline text-sm">กลับไปค้นหาห้อง</Link>
-      </section>
-    );
-  }
-
-  const onCancel = () => { clearBooking(); nav("/search"); };
-
-  return (
-    <section className="space-y-6">
-      <div className="rounded-2xl border bg-white p-6 shadow-sm">
-        <div className="text-2xl">✅ การจองสำเร็จ</div>
-        <p className="text-gray-600 mt-1">ขอบคุณสำหรับการจอง!</p>
-
-        <div className="mt-4 grid sm:grid-cols-2 gap-4 text-sm">
-          <div className="rounded-xl border p-3 bg-gray-50">
-            <div className="text-gray-500">Booking Ref</div>
-            <div className="text-lg font-semibold">{booking.id}</div>
-          </div>
-          <div className="rounded-xl border p-3 bg-gray-50">
-            <div className="text-gray-500">ห้อง</div>
-            <div className="text-lg font-semibold">{booking.roomName} ({booking.roomId})</div>
-          </div>
-          <div className="rounded-xl border p-3 bg-gray-50">
-            <div className="text-gray-500">ช่วงพัก</div>
-            <div className="text-lg font-semibold">{booking.checkIn} → {booking.checkOut} ({booking.nights} คืน)</div>
-          </div>
-          <div className="rounded-xl border p-3 bg-gray-50">
-            <div className="text-gray-500">ยอดรวม</div>
-            <div className="text-lg font-semibold">฿{booking.total.toLocaleString()}</div>
-          </div>
-        </div>
-
-        <div className="mt-5 flex gap-2">
-          <button onClick={onCancel} className="px-4 py-2 rounded-lg border bg-white hover:bg-gray-50">
-            ยกเลิกการจอง
-          </button>
-          <Link to="/search" className="px-4 py-2 rounded-lg border bg-white hover:bg-gray-50">
-            กลับไปค้นหาห้อง
+      <div className="container my-5">
+        <div className="alert alert-warning text-center">
+          <h5 className="mb-2">⚠️ Booking confermation not found</h5>
+          <Link to="/search" className="btn btn-link">
+            Search
           </Link>
         </div>
       </div>
-    </section>
+    );
+  }
+
+  const onCancel = () => {
+    clearBooking();
+    nav("/search");
+  };
+
+  return (
+    <div className="container my-5">
+      <div className="card shadow-lg border-0">
+        <div className="card-body p-5 text-center">
+          <h2 className="text-success mb-3">Booking Successful</h2>
+          <p className="text-muted">Thank you for Booking with us</p>
+
+          {/* Booking Details */}
+          <div className="row mt-4 g-3">
+            <div className="col-md-6">
+              <div className="card border-0 shadow-sm h-100">
+                <div className="card-body">
+                  <h6 className="text-muted">Booking Ref</h6>
+                  <p className="fw-bold fs-5 mb-0">{booking.id}</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-md-6">
+              <div className="card border-0 shadow-sm h-100">
+                <div className="card-body">
+                  <h6 className="text-muted">Room</h6>
+                  <p className="fw-bold fs-5 mb-0">
+                    {booking.roomName} ({booking.roomId})
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-md-6">
+              <div className="card border-0 shadow-sm h-100">
+                <div className="card-body">
+                  <h6 className="text-muted">Time peroid</h6>
+                  <p className="fw-bold fs-5 mb-0">
+                    {booking.checkIn} → {booking.checkOut} ({booking.nights} nights)
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-md-6">
+              <div className="card border-0 shadow-sm h-100">
+                <div className="card-body">
+                  <h6 className="text-muted">Payment amount</h6>
+                  <p className="fw-bold fs-5 text-success mb-0">
+                    ฿{booking.total.toLocaleString()}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Action Buttons */}
+          <div className="mt-4 d-flex justify-content-center gap-3">
+            <button
+              onClick={onCancel}
+              className="btn btn-outline-danger px-4"
+            >
+              Cancle
+            </button>
+            <Link to="/" className="btn btn-primary px-4">
+              Done
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
