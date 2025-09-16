@@ -32,7 +32,7 @@ function NavBar() {
             Payment
           </NavLink>
           <a
-            href="https://github.com"
+            href="https://github.com/u6610996/HotelRoomReservationSystem"
             target="_blank"
             rel="noreferrer"
             className="btn btn-outline-secondary btn-sm"
