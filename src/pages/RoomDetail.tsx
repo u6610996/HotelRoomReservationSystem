@@ -65,10 +65,10 @@ export default function RoomDetail() {
               <p className="text-muted mb-3">{room.type}</p>
 
               <h4 className="fw-bold text-primary">
-                ฿{room.price.toLocaleString()} 
-                {room.discount && (
+                ฿{Number(room.price).toLocaleString("th-TH")}
+                {!!room.discount && (
                   <span className="ms-2 badge bg-success">
-                    −{Math.round(room.discount * 100)}%
+                  -{Math.round(room.discount * 100)}%
                   </span>
                 )}
               </h4>
