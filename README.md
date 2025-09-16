@@ -1,69 +1,45 @@
-# React + TypeScript + Vite
+## 🏨 Hotel Room Reservation System
+---
+## 👥 Team
+- Thanadon R. (6610308)
+- Kitirat P. (6610387)
+- Thananya (6610609)
+- Worachai A. (6610996)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> CSX4104 – Software Testing • Web app for searching, filtering, and mock-booking hotel rooms.  
+> **Live demo:** `https://u6610996.github.io/HotelRoomReservationSystem/`
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ What’s in this project
 
-## Expanding the ESLint configuration
+- **Fast Search & Filter**: by **room type**, **price range**, **features** (Wi-Fi, Balcony, Sea View), and **date availability** (must be available on all selected nights).
+- **Date validation**: checks invalid ranges (e.g., end ≤ start) with clear error messages.
+- **Sorting**: by **price** (asc) or **popularity** (desc).
+- **Room detail page**: large hero image, gallery, features, price/discount, CTA.
+- **Booking flow (mock)**: Room → **Checkout** (nights + total) → **Payment** (fake PromptPay QR) → **Confirmation** (booking ref).
+- **State persistence**: booking stored in `localStorage` (refresh-safe) and can be cancelled.
+- **Production-friendly routing**: **HashRouter** + Vite `BASE_URL` helper so GitHub Pages works reliably.
+- **Clean desktop UI**: Tailwind v4, simple image-frame utilities (aspect ratio, radius, hover zoom).
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🧠 Scope we built
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- Core logic for **filtering rooms** (type/price/features/availability) and **validating dates**.
+- UI/UX for results, empty/error states, and a complete mock booking path.
+- Minimal **payment confirmation step** (no real gateway; QR image only).
+- Deployment via **GitHub Pages** (Actions workflow).
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🧩 Tech Stack
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- **React + Vite + TypeScript**
+- **React Router** (HashRouter)
+- **Tailwind CSS v4** (with `@tailwindcss/postcss`)
+- **LocalStorage** for persistence
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+
+
