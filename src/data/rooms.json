@@ -21,7 +21,7 @@
     "discount": 0.1,
     "features": ["WiFi", "Balcony", "Sea View"],
     "images": ["https://q-xx.bstatic.com/xdata/images/hotel/max1024x768/395810551.jpg?k=fc9c3df404198d41bbf276be686f1714b4d379e94fdca3e0d7990afd885a2426&o=&s=1024x", "https://q-xx.bstatic.com/xdata/images/hotel/max1024x768/233125423.jpg?k=be1e1488341f164df78bc000502d90cdd40c8f3103c8649ab00f20477734e87b&o=&s=1024x", "https://pix8.agoda.net/hotelImages/7937563/-1/8d360b2362f92c957d2064c5fa00d0c2.jpg?ca=15&ce=1&s=1024x", "https://pix8.agoda.net/property/7937563/0/8883e0746ab8b8440cc6cf7e564527b9.jpeg?ce=0&s=1024x"],
-    "availableNights": ["2025-09-12", "2025-09-13", "2025-09-14"]
+    "availableNights": ["2025-09-20", "2025-09-21", "2025-09-22"]
   },
   {
     "id": "D203",
@@ -44,7 +44,7 @@
     "quantity": 0,
     "discount": 0.15,
     "features": ["WiFi", "Balcony"],
-    "images": ["/images/rooms/Q301/main.jpg"],
+    "images": ["https://media.onyx-hospitality.com/-/media/project/amari/common/property/bangkok/stay/club_two-bedroom_corner-suite.jpg?w=900&rev=a9bdf0fb78ba42678fa44a96da743359&hash=3CBCB47A73A0B2D6C21FF87FD49BEFAC"],
     "availableNights": ["2025-09-14"]
   },
   {

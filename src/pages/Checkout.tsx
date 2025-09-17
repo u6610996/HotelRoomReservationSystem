@@ -14,6 +14,7 @@ type Room = {
   quantity: number;
   discount?: number;
   images: string[];
+  availableNights?: string[]; // new field
 };
 
 export default function Checkout() {
@@ -27,9 +28,39 @@ export default function Checkout() {
 
   if (!room) return <div className="alert alert-danger">Room not found</div>;
 
-  const err = validateDates(checkIn, checkOut);
+  // Step 1: validate date format (basic check)
+  let err = validateDates(checkIn, checkOut);
+
+  // Step 2: check for past dates
+  if (!err && (checkIn || checkOut)) {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const inDate = new Date(checkIn);
+    const outDate = new Date(checkOut);
+    if (inDate < today || outDate < today) {
+      err = "Invalid date: date is in the past.";
+    }
+  }
+
+  // Step 3: check availability
   const nights =
     checkIn && checkOut && !err ? nightsCount(checkIn, checkOut) : 0;
+  if (!err && nights > 0 && room.availableNights) {
+    const nightsToCheck: string[] = [];
+    const d = new Date(checkIn);
+    for (let i = 0; i < nights; i++) {
+      nightsToCheck.push(d.toISOString().split("T")[0]);
+      d.setDate(d.getDate() + 1);
+    }
+
+    const notAvailable = nightsToCheck.some(
+      (n) => !room.availableNights?.includes(n)
+    );
+    if (notAvailable) {
+      err = "Room is not available on the selected dates.";
+    }
+  }
+
   const total = nights
     ? totalPrice(room.price, nights, room.discount ?? 0)
     : 0;

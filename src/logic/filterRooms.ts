@@ -26,7 +26,7 @@ export function filterRooms(f: Filters): Room[] {
     const priceOk = (f.priceMin ?? -Infinity) <= r.price && r.price <= (f.priceMax ?? Infinity);
     const featuresOk = !f.features?.length || f.features.every(x => r.features.includes(x));
     const discountOk = !f.discountedOnly || (r.discount ?? 0) > 0;
-    const qtyOk = r.quantity > 0;
+    const qtyOk = r.quantity >= 0;
     const availOk = !nights.length || nights.every(n => r.availableNights.includes(n));
     return typeOk && priceOk && featuresOk && discountOk && qtyOk && availOk;
   });

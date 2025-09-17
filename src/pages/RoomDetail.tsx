@@ -79,12 +79,22 @@ export default function RoomDetail() {
                 ))}
               </div>
 
-              <button
-                onClick={onBook}
-                className="btn btn-dark btn-lg w-100 mt-4"
-              >
-                Book this room
-              </button>
+              {room.quantity > 0 ? (
+                <button
+                  onClick={onBook}
+                  className="btn btn-dark btn-lg w-100 mt-4"
+                >
+                  Book this room
+                </button>
+              ) : (
+                <button
+                  className="btn btn-secondary btn-lg w-100 mt-4"
+                  disabled
+                >
+                  Unavailable
+                </button>
+              )}
+
               <p className="text-muted small mt-2">
                 * Select the date and finalize the price in the next step.
               </p>
