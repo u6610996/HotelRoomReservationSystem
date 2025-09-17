@@ -3,7 +3,7 @@
 ## 👥 Team
 - Thanadon R. (6610308)
 - Kitirat P. (6610387)
-- Thananya A.(6610609)
+- Thananya A. (6610609)
 - Worachai A. (6610996)
 
 > CSX4104 – Software Testing • Web app for searching, filtering, and mock-booking hotel rooms.  
